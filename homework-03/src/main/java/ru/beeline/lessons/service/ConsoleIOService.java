@@ -7,22 +7,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 @Service
-public class ConsoleIOService {
-    private final Scanner userInput;
+public interface ConsoleIOService {
 
-    private final PrintStream userOutput;
+    void outputString(String s);
 
-    public ConsoleIOService() {
-        userInput = new Scanner(System.in, StandardCharsets.UTF_8);
-        userOutput = new PrintStream(System.out, false, StandardCharsets.UTF_8);
-
-    }
-
-    public void outputString(String s){
-        userOutput.println(s);
-    }
-
-    public String readString(){
-        return userInput.nextLine();
-    }
+    String readString();
 }
